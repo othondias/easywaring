@@ -1,5 +1,6 @@
 package dandios.blogspot.com.warnigerrorconfirmation;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.CountDownTimer;
@@ -19,11 +20,18 @@ public class WaringLinearLayout extends LinearLayout {
 	private int width;
 	private int height;
 	private LayoutParams params;
+	public LayoutParams getParams() {
+		return params;
+	}
+
 	private Context context;
 	private double percent;
 	public void setPercent(double percent) {
 		this.percent = percent;
 		params = new LayoutParams(width, (int) (height*percent));
+		android.view.ViewGroup.LayoutParams params =  getLayoutParams();
+		params.width = width;
+		params.height = (int) (height*percent);
 		this.setLayoutParams(params);
 	}
 	private WaringLinearLayout(Context context) {
@@ -44,6 +52,7 @@ public class WaringLinearLayout extends LinearLayout {
 		this.height = displaymetrics.heightPixels;
 		this.width = displaymetrics.widthPixels;
 		params = new LayoutParams(width, (int) (height*percent));
+		params.setMargins(50, 50, 50, 50);
 		this.setLayoutParams(params);
 	}
 
@@ -52,8 +61,8 @@ public class WaringLinearLayout extends LinearLayout {
 		this(viewGroup,down);
 		int[] location = new int[2];
 		view.getLocationInWindow(location);
-		params.topMargin = location[0];
-		this.setLayoutParams(params);
+		android.view.ViewGroup.LayoutParams params =  getLayoutParams();
+		continua aqui
 		if (down) {
 			
 		}else{

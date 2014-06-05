@@ -1,5 +1,6 @@
 package dandios.blogspot.com.warnigerrorconfirmation;
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -70,6 +71,7 @@ public class Test extends ActionBarActivity {
 				@Override
 				public void onClick(View arg0) {
 					WaringLinearLayout layout = new WaringLinearLayout(container, arg0, false);
+					layout.setPercent(0.50);
 					layout.show(2);
 				}
 			});
